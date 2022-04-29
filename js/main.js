@@ -1,3 +1,6 @@
+// nav
+var nav = document.getElementById('nav');
+
 var listSec = document.getElementById("list-sec");
 var navBut = document.getElementById("navBut");
 
@@ -5,15 +8,7 @@ var navBut = document.getElementById("navBut");
 var spanUp = document.getElementById("span-up");
 var spanDown = document.getElementById("span-down");
 var midSpan = document.getElementById("mid-span");
-// auto slider
-var counter = 1;
-setInterval(() => {
-    document.getElementById("radio" + counter).checked = true;
-    counter++;
-    if (counter > document.getElementsByClassName("slideImg").length){
-        counter = 1;
-    }
-}, 5000);
+
 // nav section
 var n = 0;
 navBut.onclick=()=>{
@@ -73,3 +68,27 @@ navBut.onclick=()=>{
     }
     
 }
+
+
+window.addEventListener("scroll",e=>{
+    if(scrollY <= 75){
+        
+        nav.style.top= 0;
+        nav.style.position="absolute";
+
+    }
+    if(scrollY>75 && scrollY <= 670){
+        nav.style.top=-100 +"%";
+        setTimeout(()=>{
+            nav.style.position="fixed";
+
+        },500)
+
+    }
+    if(scrollY > 680){
+        nav.style.top= 0;
+        nav.style.position="fixed";
+
+    }
+})
+
